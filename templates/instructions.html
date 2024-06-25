@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% comment %} <link rel="stylesheet" href="{% static 'admin/css/instruction.css' %}"> {% endcomment %}
+        <style>
+            body{
+                background-color: burlywood;
+                font-weight: bold;
+                border-collapse:collapse;
+            }
+            h3{
+                text-align:center;
+            }
+            #under{
+                position: relative;
+                left:500px;
+                padding: 20px;
+                border-radius:8px;
+                font-weight:bold;
+            }
+            li{
+                position:relative;
+                left:300px;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <h3>General instructions to use this Model</h3>
+        <ol>
+            <li>This model is functional only on Computers and Laptops.</li>
+            <li>Make sure a good WebCam (at least 720p) is installed onto the system for better results.</li>
+            <li>Once you have understood, then click on the "I UNDERSTAND" button below to proceed further</li>
+            <li>On click of this button, you must wait patiently for about 20-30 seconds for the model to start</li>
+            <li>Let us know if any other instructions need to be added here</li>
+        </ol>
+
+
+        <button id = "under" onclick = "location.href = '{% url 'homie' %}'">I UNDERSTAND</button>
+        
+        <script src="" async defer></script>
+    </body>
+</html>

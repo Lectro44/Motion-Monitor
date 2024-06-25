@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Display Webcam Stream</title>
+ 
+<style>
+h1{
+    margin: 40px;
+    text-align: center;
+}
+#container {
+	margin: 0px auto;
+	width: 1000px;
+    height: 500px;
+	border: 10px #333 solid;
+}
+#videoElement {
+    position:relative;
+    right:150px;
+    
+	width: 1280px;
+	height: 500px;
+	
+}
+
+</style>
+</head>
+ 
+<body>
+<h1>Live Video Capture Demo</h1>
+<div id="container">
+	<video autoplay="true" id="videoElement">
+        <source src="{% url 'test' %}">
+	</video>
+    <center><button id = "stopp" onclick="stop()">Click here to Stop video</button></center>
+</div>
+<script>
+    let video = document.querySelector("#videoElement");
+
+    if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function (stream) {
+        video.srcObject = stream;
+        })
+        .catch(function (err0r) {
+        console.log("Something went wrong!");
+        });
+    }
+    function stop(e) {
+        var stream = video.srcObject;
+        var tracks = stream.getTracks();
+
+        for (var i = 0; i < tracks.length; i++) {
+            var track = tracks[i];
+            track.stop();
+        }
+
+        video.srcObject = null;
+    }
+</script>
+</body>
+</html>

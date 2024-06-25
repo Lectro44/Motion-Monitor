@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Result</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <style>
+            body{
+                background-color:crimson;
+                text-align:center;
+                color:white;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>Final prediction results</h3><br>
+            Predicted Class is {{ classes }}<br>
+
+        <h3>Predicted probability percent is: 
+            {% if classes == 'Attentive' %}
+                {{ attentive }} %
+            {% elif classes == 'Bored' %}
+                {{ bored }} % 
+            {% else %}
+               {{ distracted }} % 
+            {% endif %}
+            </h3>
+        <button onclick="location.href='{% url 'homie' %}'">Click here to Restart the Process</button> <hr>
+                   
+        
+        <script src="" async defer></script>
+    </body>
+</html>
